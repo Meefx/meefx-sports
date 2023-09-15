@@ -1,5 +1,36 @@
-<h1>Meefx Sports</h1>
+{% extends 'base.html' %}
 
-<h5>Name: {{ name }}</h5>
-<h5>NPM: {{ NPM }}</h5>
-<h5>Class: {{ class }}</h5>
+{% block content %}
+    <h1>Meefx Sports</h1>
+
+    <h5>Name: {{ name }}</h5>
+    <h5>NPM: {{ NPM }}</h5>
+    <h5>Class: {{ class }}</h5>
+
+    <h4>Kamu menyimpan {{ items_count }} item pada aplikasi ini</h4>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Description</th>
+        </tr>
+    
+        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+    
+        {% for item in items %}
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.amount}}</td>
+                <td>{{item.description}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+    <br />
+    
+    <a href="{% url 'main:create_item' %}">
+        <button>
+            Add New Item
+        </button>
+    </a>
+{% endblock content %}
