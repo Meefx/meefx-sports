@@ -1,3 +1,7 @@
+# Addition files
+desktop.ini
+delete_all_desktop_ini.bat
+
 # Django
 *.log
 *.pot
