@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse
 from main.forms import ItemForm
 from django.urls import reverse
@@ -12,8 +12,8 @@ import datetime
 
 @login_required(login_url='/login')
 def show_main(request):
-    items = Item.objects.all()
-    items_count = Item.objects.count()
+    items = Item.objects.filter(user=request.user)
+    items_count = items.count()
 
     context = {
         'name': request.user.username,
@@ -84,3 +84,23 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('main:login')
+
+def increment_item(request, item_id):
+    item = get_object_or_404(Item, pk=item_id)
+    item.amount += 1
+    item.save()
+    return redirect('main:show_main')
+
+def decrement_item(request, item_id):
+    item = get_object_or_404(Item, pk=item_id)
+    if item.amount > 0:
+        item.amount -= 1
+        item.save()
+        if (item.amount == 0):
+            item.delete()
+    return redirect('main:show_main')
+
+def delete_item(request, item_id):
+    item = get_object_or_404(Item, pk=item_id)
+    item.delete()
+    return redirect('main:show_main')
