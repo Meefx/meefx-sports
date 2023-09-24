@@ -26,13 +26,13 @@
 
     1. **Kebocoran Informasi Pribadi**. Cookies sering digunakan untuk menyimpan data sensitif seperti token otentikasi atau nomor kartu kredit. Jika cookies ini tidak dienkripsi atau tidak diatur dengan baik, penyerang akan memanfaatkan peluang tersebut untuk mangakses data pribadi seseorang
     2. **Tidak terdapat batasan waktu penyimpanan Cookies**. Cookies yang tidak memiliki waktu kadaluwarsa yang sesuai dapat meningkatkan risiko keamanan. Cookies harus memiliki waktu kadaluwarsa yang tepat agar tidak menjadi sasaran serangan berbasis cookie. Jika cookies tetap aktif lebih lama dari yang seharusnya, penyerang dapat mengakses akun pengguna bahkan setelah pengguna keluar dari situs dalam waktu yang lama.
-    3. **Kebocoran Informasi Perilaku Pengguna.** Bocornya informasi perilaku pengguna dapat menyebabkan penyerang mengetahui kapan kita biasanya _login _atau mengakses sistem sehingga mereka dapat memanfaatkan peluang tersebut untuk masuk kedalam sistem kita.
+    3. **Kebocoran Informasi Perilaku Pengguna.** Bocornya informasi perilaku pengguna dapat menyebabkan penyerang mengetahui kapan kita biasanya _login_ atau mengakses sistem sehingga mereka dapat memanfaatkan peluang tersebut untuk masuk kedalam sistem kita.
     
 5. **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
     1. Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
         * Membuat Fungsi Registrasi 
 
-            Untuk membuat fitur registrasi, saya membuat fungsi yang menerima request user. Pada fungsi tersebut saya membuat sebuah form registrasi yang melakukan rendering ke _page_ registrasi lalu memanfaatkan Django UserCreationForm dengan memasukkan QueryDict berdasarkan input dari user pada request.POST. Setelah itu saya melakukan pengecekan apakah form tersebut valid dan menyimpan hasilnya serta menampilkan pesan bahwa akun telah sukses dibuat lalu kembali ke aplikasi utama menggunakan `redirect`. Kemudian saya membuat _Registration Page _bernama `registration.html` yang disambungkan dengan template `base.html`. Pada page tersebut, saya memanggil form dari django dengan method `POST`  dan menampilkan pesan-pesan yang dihasilkan selama proses tersebut jika ada. Setelah itu, saya juga melakukan _routing_ fungsi tersebut ke file `urls.py` pada direktori aplikasi main.
+            Untuk membuat fitur registrasi, saya membuat fungsi yang menerima request user. Pada fungsi tersebut saya membuat sebuah form registrasi yang melakukan rendering ke _page_ registrasi lalu memanfaatkan Django UserCreationForm dengan memasukkan QueryDict berdasarkan input dari user pada request.POST. Setelah itu saya melakukan pengecekan apakah form tersebut valid dan menyimpan hasilnya serta menampilkan pesan bahwa akun telah sukses dibuat lalu kembali ke aplikasi utama menggunakan `redirect`. Kemudian saya membuat _Registration Page_ bernama `registration.html` yang disambungkan dengan template `base.html`. Pada page tersebut, saya memanggil form dari django dengan method `POST`  dan menampilkan pesan-pesan yang dihasilkan selama proses tersebut jika ada. Setelah itu, saya juga melakukan _routing_ fungsi tersebut ke file `urls.py` pada direktori aplikasi main.
 
         * Membuat Fungsi Login
 
@@ -47,15 +47,11 @@
             Untuk merestriksi aplikasi yang saya buat, saya memanfaatkan modul `login_required` dari `from django.contrib.auth.decorators`. Kemudian, sebelum fungsi `show_main(request)`, saya menambahkan kode agar merujuk ke halaman login terlebih dahulu sebelum bisa mengakses aplikasinya. Berikut adalah kodenya.
 
 
-            ```
+            ```python
             ...
-
             @login_required(login_url='/login')
-
             def show_main(request):
             ...
-
-
             ```
 
     2. Menghubungkan model Item dengan User.
@@ -63,7 +59,7 @@
         Pada `models.py` yang ada pada subdirektori `main`, saya menggunakan module `User` dari  `django.contrib.auth.models` untuk menghubungkan Item dengan user. Saya menambahkan field user pada model Item dengan kode berikut.
 
 
-        ```
+        ```python
         user = models.ForeignKey(User, on_delete=models.CASCADE)
         ```
 
@@ -71,7 +67,7 @@
         Kode ini digunakan untuk menghubungkan item dengan user melalui sebuah _relationship_. Sehingga setiap user dapat memiliki Itemnya masing-masing tanpa terikat dengan user lain. Kemudian, pada `views.py` subdirektori `main`. Saya memodifikasi kode berikut.
 
 
-        ```
+        ```python
         def create_product(request):
          form = ItemForm(request.POST or None)
          
@@ -81,7 +77,6 @@
              item.save()
              return HttpResponseRedirect(reverse('main:show_main'))
          ...
-
         ```
 
 
@@ -92,7 +87,7 @@
         Saya menggunakan module `datetime`, untuk menyimpan data last login ke cookies. Pertama, pada fungsi `login_user`, saya menambahkan cookie yang bernama `last_login` dengan mengganti kode pada fungi tersebut pada blok `if user is not None` menjadi kode berikut.
 
 
-        ```
+        ```python
         ...
         if user is not None:
             login(request, user)
@@ -106,7 +101,7 @@
         Pada kode ini, saya membuat agar setelah user terverifikasi, user dapat login dan membuat response. Pada saat itu, saya menambahkan cookie `last_login` dan menambahkannya ke response yang merujuk ke `show_main`. Kemudian, pada fungi `show_main`, saya menambahkan key `last_login` pada dictionary `context` yang mengambil cookies last_login terhadap request dari user yang nantinya akan ditampilkan ke halaman web dengan menambahkan pesan sesi terakhir login pada `main.html`. Lalu, saya memodifikasi fungsi logout user dengan menambahkan response serta melakukan delete_cookie `last_login`. Sehingga cookie `last_login` akan terhapus saat pengguna melakukan `logout`. Terakhir, saya menamodifikasi show_main pada variable `items` dan `name` menjadi seperti berikut.
 
 
-        ```
+        ```python
         def show_main(request):
             products = Product.objects.filter(user=request.user)
             context = {
