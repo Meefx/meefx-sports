@@ -9,17 +9,17 @@
 # Tugas 5: Desain Web menggunakan HTML, CSS dan Framework CSS
 
 1. **Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.**
-    1. Elemen selector merupakan salah satu jenis selector dalam CSS yang mana kita dapat melakukan perubahan properti untuk semua elemen yang memiliki tag HTML yang sama. Waktu yang tepat untuk menggunakan elemen selector adalah ketika kita ingin melakukan perubahan properti yang terikat ke elemen tag HTML seperti `&lt;p> &lt;h1> &lt;h2>`, dan tag-tag HTML lainnya.
+    1. Elemen selector merupakan salah satu jenis selector dalam CSS yang mana kita dapat melakukan perubahan properti untuk semua elemen yang memiliki tag HTML yang sama. Waktu yang tepat untuk menggunakan elemen selector adalah ketika kita ingin melakukan perubahan properti yang terikat ke elemen tag HTML seperti `<p> <h1> <h2>`, dan tag-tag HTML lainnya.
     
 2. **Jelaskan HTML5 Tag yang kamu ketahui.**
-    1. &lt;header> digunakan untuk mendefinisikan bagian atas (header) dari sebuah elemen atau halaman web. Ini biasanya berisi judul, logo, menu navigasi, atau elemen-elemen lain yang terkait dengan bagian atas halaman.
-    2. &lt;title> Title merupakan judul yang akan ditampilkan pada tab title suatu website.
-    3. &lt;body> digunakan untuk mengelompokkan semua konten yang akan ditampilkan di halaman web.
-    4. &lt;h1>  adalah elemen yang digunakan untuk mendefinisikan judul atau heading level 1 pada halaman web.
-    5. &lt;p> dalah elemen yang digunakan untuk mendefinisikan sebuah paragraf dalam teks di halaman web.
-    6. &lt;div> digunakan untuk mengelompokkan dan menggabungkan elemen-elemen HTML dan biasanya berupa container untuk mengatur tata letak dan styling dengan CSS
-    7. &lt;a> digunakan untuk membuat tautan atau hyperlink ke halaman web lain atau sumber daya lainnya.
-    8. &lt;footer> digunakan untuk mendefinisikan bagian bawah (footer) dari elemen atau halaman web. Ini biasanya berisi informasi kontak, hak cipta, atau tautan terkait lainnya.
+    1. `<header>` digunakan untuk mendefinisikan bagian atas (header) dari sebuah elemen atau halaman web. Ini biasanya berisi judul, logo, menu navigasi, atau elemen-elemen lain yang terkait dengan bagian atas halaman.
+    2. `<title>` Title merupakan judul yang akan ditampilkan pada tab title suatu website.
+    3. `<body>`  digunakan untuk mengelompokkan semua konten yang akan ditampilkan di halaman web.
+    4. `<h1>`     adalah elemen yang digunakan untuk mendefinisikan judul atau heading level 1 pada halaman web.
+    5. `<p>` dalah elemen yang digunakan untuk mendefinisikan sebuah paragraf dalam teks di halaman web.
+    6. `<div>`   digunakan untuk mengelompokkan dan menggabungkan elemen-elemen HTML dan biasanya berupa container untuk mengatur tata letak dan styling dengan CSS
+    7. `<a>` digunakan untuk membuat tautan atau hyperlink ke halaman web lain atau sumber daya lainnya.
+    8. `<footer>`    digunakan untuk mendefinisikan bagian bawah (footer) dari elemen atau halaman web. Ini biasanya berisi informasi kontak, hak cipta, atau tautan terkait lainnya.
     
 3. **Jelaskan perbedaan antara margin dan padding.**
 
