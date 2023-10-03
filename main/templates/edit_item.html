@@ -1,12 +1,14 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+
+{% load static %}
 
 {% block content %}
-<div class="container mt-3">
-    <div class="d-flex align-items-center position-absolute top-50 start-50 translate-middle">
-        <div class = "add">
-            <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 15px;">
-                <div class="card-header" style="background-color: rgb(168, 220, 229);">
-                    <h1 class="text-center">Add New Item</h1>  
+<div class="d-flex align-items-center">
+    <div class="container mt-3">
+        <div class = "edit_item">
+            <div class="card mt-5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 15px;">
+                <div class="card-header">
+                    <h1 class="text-center">Edit Item</h1>  
                 </div>
                 <div class="card-body">
                     <form method="POST">
@@ -16,7 +18,7 @@
                             <tr>
                                 <td></td>
                                 <td>
-                                    <input type="submit" value="Add Item"/>
+                                    <input class="btn btn-primary" type="submit" value="Edit Item"/>
                                 </td>
                             </tr>
                         </table>
