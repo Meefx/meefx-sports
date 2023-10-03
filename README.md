@@ -6,6 +6,80 @@
 **Kelas: PBP C**
 
 
+# Tugas 5: Desain Web menggunakan HTML, CSS dan Framework CSS
+
+1. **Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.**
+    1. Elemen selector merupakan salah satu jenis selector dalam CSS yang mana kita dapat melakukan perubahan properti untuk semua elemen yang memiliki tag HTML yang sama. Waktu yang tepat untuk menggunakan elemen selector adalah ketika kita ingin melakukan perubahan properti yang terikat ke elemen tag HTML seperti `&lt;p> &lt;h1> &lt;h2>`, dan tag-tag HTML lainnya.
+    
+2. **Jelaskan HTML5 Tag yang kamu ketahui.**
+    1. &lt;header> digunakan untuk mendefinisikan bagian atas (header) dari sebuah elemen atau halaman web. Ini biasanya berisi judul, logo, menu navigasi, atau elemen-elemen lain yang terkait dengan bagian atas halaman.
+    2. &lt;title> Title merupakan judul yang akan ditampilkan pada tab title suatu website.
+    3. &lt;body> digunakan untuk mengelompokkan semua konten yang akan ditampilkan di halaman web.
+    4. &lt;h1>  adalah elemen yang digunakan untuk mendefinisikan judul atau heading level 1 pada halaman web.
+    5. &lt;p> dalah elemen yang digunakan untuk mendefinisikan sebuah paragraf dalam teks di halaman web.
+    6. &lt;div> digunakan untuk mengelompokkan dan menggabungkan elemen-elemen HTML dan biasanya berupa container untuk mengatur tata letak dan styling dengan CSS
+    7. &lt;a> digunakan untuk membuat tautan atau hyperlink ke halaman web lain atau sumber daya lainnya.
+    8. &lt;footer> digunakan untuk mendefinisikan bagian bawah (footer) dari elemen atau halaman web. Ini biasanya berisi informasi kontak, hak cipta, atau tautan terkait lainnya.
+    
+3. **Jelaskan perbedaan antara margin dan padding.**
+
+    Margin adalah ruang yang berada di luar batas luar elemen dan digunakan untuk mengatur jarak antara elemen tersebut dengan elemen-elemen lain di sekitarnya. Ini berfungsi sebagai "ruang luar" yang sifatnya transparan. Margin sering digunakan untuk mengatur tata letak elemen, seperti membuat jarak antara elemen-elemen yang berdekatan atau mengatur posisi elemen di halaman. Sedangkan, Padding adalah ruang yang berada di antara batas luar elemen dan kontennya. Ini berfungsi sebagai "ruang dalam" yang terlihat dan umumnya memiliki latar belakang dan warna yang sama dengan elemen itu sendiri. Padding digunakan untuk mengatur jarak antara konten elemen dan batas luar elemen tersebut.
+
+4. **Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?**
+
+    Framework CSS Tailwind dan Bootstrap memiliki perbedaan yang signifikan. Berikut adalah perbedaannya
+
+
+    <table>
+      <tr style="text-align:center";>
+       <td>
+    <strong>Tailwind</strong>
+       </td>
+       <td><strong>Bootstrap</strong>
+       </td>
+      </tr>
+      <tr>
+       <td>Memanfaatkan kelas-kelas utilitas yang telah didefinisikan sebelumnya untuk membangun tampilan.
+       </td>
+       <td>Menggunakan gaya dan komponen yang telah didefinisikan, yang memiliki tampilan yang sudah jadi dan dapat digunakan secara langsung.
+       </td>
+      </tr>
+      <tr>
+       <td>Memiliki file CSS yang lebih kecil karena hanya akan memuat kelas-kelas utilitas yang digunakan.
+       </td>
+       <td>Memiliki file CSS yang lebih besar karena termasuk banyak komponen yang telah didefinisikan.
+       </td>
+      </tr>
+      <tr>
+       <td>Memberikan fleksibilitas dan adaptabilitas tinggi terhadap proyek karena Anda dapat menyesuaikan setiap aspek tampilan sesuai kebutuhan.
+       </td>
+       <td>Seringkali menghasilkan tampilan yang lebih konsisten di seluruh proyek karena menggunakan komponen yang telah didefinisikan.
+       </td>
+      </tr>
+      <tr>
+       <td>Memiliki pembelajaran yang lebih <em>advance</em> karena memerlukan pemahaman terhadap kelas-kelas utilitas yang tersedia dan bagaimana menggabungkannya untuk mencapai tampilan yang diinginkan.
+       </td>
+       <td>Memiliki pembelajaran yang lebih cepat untuk pemula karena dapat mulai dengan komponen yang telah didefinisikan.
+       </td>
+      </tr>
+    </table>
+
+
+
+    Ketika memilih antara Bootstrap dan Tailwind CSS, perlu mempertimbangkan karakteristik masing-masing kerangka kerja dan kebutuhan proyek. Bootstrap cocok digunakan ketika konsistensi visual yang telah diatur dan dokumentasi yang kuat menjadi prioritas. Ini juga berguna dalam proyek dengan waktu terbatas atau oleh pemula yang ingin memulai dengan cepat. Sebaliknya, Tailwind CSS memberikan fleksibilitas tinggi dan tingkat kustomisasi yang dalam, cocok untuk proyek yang memerlukan tampilan yang sangat disesuaikan dan kontrol mendalam. Pilihan antara keduanya bergantung pada kebutuhan proyek dan tingkat kenyamanan dalam penggunaan masing-masing kerangka kerja. Beberapa pengembang mungkin juga memilih untuk menggabungkan Bootstrap dan Tailwind CSS dalam satu proyek untuk memanfaatkan kelebihan keduanya.
+
+
+
+5. **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+    1. Kustomisasi halaman login, register, dan tambah inventori semenarik mungkin.
+        1. Pada halaman login, register, dan tambah item, saya menggunakan bootstrap untuk melakukan modifikasi terhadap button dan juga merapihkan posisi-posisi elemen tersebut dengan memanfaatkan flex dan position pada  card dan tabel, saya juga menambahkan shadow border agar tampilan terlihat lebih menarik. Kemudian saya juga menempatkan card register dan login pada tengah halaman website agar terlihat lebih simetris. Kemudian pada halaman tambah_item, pada card header saya berikan warna agar warnanya tidak monoton.
+    2.  Kustomisasi halaman daftar inventori menjadi lebih berwarna maupun menggunakan approach lain seperti menggunakan Card.
+        1. Pada halaman daftar inventori, Saya membuat navigation bar pada bagian atas halaman website saya. Saya menambahkan navigation ke posisi-posisi yang saya ingin tampilkan pada halaman website saya menggunakan Bootstrap. Kemudian saya juga membuat tabel yang ditampilkan menjadi lebih terstruktur dan menambahkan border. Kemudian saya juga melakukan styling pada button agar terlihat lebih berwarna.
+        2. Kemudian saya juga menampilkan bentuk lain dari inventory saya, yaitu menampilkan dalam bentuk card view dengan memanfaatkan card dari bootstrap. Kemudian saya melakukan penyesuaian terhadap margin untuk memberikan jarak antara card yang 1 dengan card yang lain.
+        3. Terakhir saya juga melakukan penyesuaian tampilan pada halaman edit_product menggunakan tabel dan card agar terlihat lebih menarik.
+
+
+
 # Tugas 4: Implementasi Autentikasi, Session, dan Cookies pada Django
 
 1.  **Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?**
