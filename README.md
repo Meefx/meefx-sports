@@ -5,6 +5,8 @@
 
 **Kelas: PBP C**
 
+**Link: http://muhammad-fakhri25-tugas@pbp.cs.ui.ac.id**
+
 
 # Tugas 6: JavaScript dan Asynchronous JavaScript
 
