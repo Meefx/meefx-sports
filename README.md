@@ -40,7 +40,7 @@
 4. **Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.**
 
     | Fetch API                                      | JQuery                                              |
-    | --------------------------------------------- | --------------------------------------------------- |
+    | ------------------------------------------- | ------------------------------------------------- |
     | Kompleksitas relatif lebih rendah, API baru yang lebih modern | Kompleksitas relatif lebih tinggi, memiliki API yang lebih lengkap |
     | Ukuran file lebih kecil karena hanya API dasar | Lebih besar karena termasuk berbagai fitur tambahan |
     | Menggunakan Promises untuk mengelola respons async | Menggunakan callbacks atau Deferred objects |
@@ -101,6 +101,13 @@
     3. Melakukan perintah collectstatic.
 
         Untuk mengumpulkan file static dari setiap aplikasi ke dalam suatu folder agar mudah disajikan pada produksi, saya memangging perintah `python manage.py collectstatic` pada cmd root direktori. Setelah pemanggilan tersebut, akan terbentuk direktori `static/admin` yang isinya berbagai macam static files yang digunakan pada projek ini.
+
+
+**References**
+
+* Awati, R. (n.d.). What is Asynchronous JavaScript and XML (AJAX)? TheServerSide. Retrieved October 8, 2023, from https://www.theserverside.com/definition/Ajax-Asynchronous-JavaScript-and-XML
+
+* Bevans, D. (2023, September 19). Explained: Asynchronous vs. Synchronous Programming. Mendix. Retrieved October 8, 2023, from https://www.mendix.com/blog/asynchronous-vs-synchronous-programming/
 
 
 
