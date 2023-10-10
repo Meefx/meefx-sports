@@ -6,6 +6,111 @@
 **Kelas: PBP C**
 
 
+# Tugas 6: JavaScript dan Asynchronous JavaScript
+
+1. **Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.**
+
+    Perbedaan antara asynchronous programming dan synchronous programming mencakup karakteristik dasar dalam arsitektur eksekusi tugas. Asynchronous merupakan arsitektur non-blocking, di mana eksekusi satu tugas tidak tergantung pada tugas lainnya, sehingga tugas-tugas dapat berjalan secara bersamaan. Sebaliknya, synchronous merupakan arsitektur blocking, di mana eksekusi setiap operasi bergantung pada penyelesaian operasi sebelumnya, sehingga setiap tugas memerlukan jawaban sebelum melanjutkan ke iterasi berikutnya.
+
+
+    Selain itu, asynchronous bersifat multi-threaded, yang berarti operasi atau program dapat berjalan secara paralel sehingga meningkatkan throughput. Di sisi lain, synchronous adalah single-threaded, sehingga hanya satu operasi atau program yang berjalan pada satu waktu, yang membuatnya lebih lambat dan lebih metodenya.
+
+
+    Asynchronous programming lebih disukai untuk pengguna karena meningkatkan pengalaman pengguna dengan mengurangi waktu tunda antara pemanggilan fungsi dan pengembalian nilai dari fungsi tersebut. Ini menghasilkan alur yang lebih cepat dan lancar. Di sisi lain, Synchronous programming lebih menguntungkan bagi para pengembang karena didukung oleh berbagai bahasa pemrograman dan menjadi metode pemrograman default, sehingga pengembang tidak perlu menghabiskan waktu mempelajari hal baru.
+
+2. **Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.**
+
+    Paradigma event-driven programming adalah pendekatan dalam pemrograman di mana program merespons events yang terjadi. Paradigma ini memiliki maksud bahwa aliran eksekusi program tidak hanya bergantung pada urutan kode yang kita tulis, tetapi bergantung pada peristiwa yang terjadi dalam lingkungan eksekusi.
+
+
+    Dalam paradigma event-driven, program biasanya memiliki _event handler_ yang merespon peristiwa-peristiwa tertentu. Ketika peristiwa tersebut terjadi, program akan menjalankan kode yang telah ditetapkan untuk menangani peristiwa tersebut. Ini memungkinkan program untuk merespons secara dinamis terhadap input atau kondisi yang berubah tanpa harus berjalan dalam urutan yang tetap.
+
+
+    Salah satu contoh pada kode yang saya buat adalah event handler terhadap button `Add Item AJAX`. Kode yang saya buat dapat memanggil kode yang menjalankan penambahan item jika user mengklik button tersebut. Berikut adalah kodenya
+
+
+    ```javascript
+    document.getElementById("button_add").onclick = addItem
+    ```
+
+3. **Jelaskan penerapan asynchronous programming pada AJAX.**
+
+    Asynchronous AJAX, atau Asynchronous JavaScript and XML, beroperasi dengan memulai serangkaian peristiwa pada sebuah halaman web. Ketika suatu peristiwa pemicu terjadi, seperti halaman dimuat atau pengguna mengklik tombol, JavaScript membuat objek XMLHttpRequest untuk menjalin komunikasi dengan server web. Objek ini mengirimkan permintaan ke server, kemudian memprosesnya dan mengirimkan respons kembali ke browser. JavaScript terus menjalankan kode lain tanpa menunggu respons dari server, sehingga memastikan halaman web tetap responsif terhadap interaksi pengguna atau tugas lainnya. Setelah respons diterima, JavaScript menginterpretasinya dan mengambil tindakan yang sesuai, seperti memperbarui konten halaman web atau menjalankan operasi tambahan berdasarkan data yang diterima.
+
+4. **Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.**
+
+    | Fetch API                                      | JQuery                                              |
+    | ------------------------------------------- | ------------------------------------------------- |
+    | Kompleksitas relatif lebih rendah, API baru yang lebih modern | Kompleksitas relatif lebih tinggi, memiliki API yang lebih lengkap |
+    | Ukuran file lebih kecil karena hanya API dasar | Lebih besar karena termasuk berbagai fitur tambahan |
+    | Menggunakan Promises untuk mengelola respons async | Menggunakan callbacks atau Deferred objects |
+    | Memungkinkan kustomisasi yang lebih tinggi   | Kustomisasi lebih terbatas pada respons            |
+    | Memerlukan langkah tambahan untuk memanipulasi DOM | Memiliki fungsi-fungsi DOM yang terintegrasi       |
+
+
+
+
+    Pemilihan antara Fetch API dan jQuery tergantung pada kebutuhan proyek dan preferensi pengembang. Fetch API cocok untuk proyek-proyek sederhana yang hanya memerlukan operasi dasar AJAX, sedangkan jQuery lebih sesuai untuk proyek yang memerlukan fitur-fitur tambahan seperti animasi, efek, dan manipulasi DOM yang lebih kuat. 
+
+
+
+5. **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+    1. AJAX GET
+        1. Ubahlah kode cards data item agar dapat mendukung AJAX GET.
+
+            Pada cards data item, saya menghapus kode sebelumnya dan membuat sebuah attribut ID `item_card` pada tag div kosong yang nantinya akan menjadi tempat cards pada `main.html`. 
+
+        2.  Lakukan pengambilan task menggunakan AJAX GET.
+
+            Agar mendukung AJAX GET, pertama-tama, saya membuat sebuah fungsi baru bernama `get_item_json` yang mengambil semua item berdasarkan user yang login. Kemudian, saya routing ke `urls.py`. Lalu, pada `main.html` saya membuat block `&lt;scripts>` yang berisi fungsi asynchronous bernama `getItem` yang melakukan pengambilan data fetch API terhadap file json yang berasal dari `get_item_json` pada `views.py`.
+
+    2.  AJAX POST
+        1. Buatlah sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan item.
+
+            Saya membuat sebuah button baru yang diambil dari bootstrap dengan kode sebagai berikut.
+
+
+            ```html
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Item by AJAX</button>
+            ```
+
+        2. Buatlah fungsi view baru untuk menambahkan item baru ke dalam basis data.
+
+            Pada `views.py` saya membuat sebuah fungsi baru bernama `add_item_ajax` yang digunakan untuk menambahkan item baru dan menggunakan `@csrf_exempt` sebagai atribut keamanan.
+
+        3.  Buatlah path /create-ajax/ yang mengarah ke fungsi view yang baru kamu buat.
+
+            Pada `urls.py` direktori `main`, saya membuat routing dengan path `/create-ajax/` dengan menambahkan baris berikut.
+
+            ```python
+            path('create-ajax/', add_item_ajax, name='add_item_ajax'),
+            ```
+
+        4.  Hubungkan form yang telah kamu buat di dalam modal kamu ke path /create-ajax/.
+
+            Pada main.html, saya membuat sebuah modal yang berasal dari bootstrap, pada modal tersebut, saya membuat sebuah form yang dihubungkan dengan path `/create-ajax/` ketika user menekan button `Add Item`. Saya membuat sebuah fungsi `addItem` yang melakukan fetching data dari fungsi `add_item` pada views.py menggunakan method POST. Setelah data didapat, saya melakukan pemanggilan fungsi `refreshItem` yang berfungsi menampilkan setiap item yang ada pada cards dengan memanfaatkan htmlString dan manipulasi DOM terhadap tag id `item_card`pada div cards sebelumnya. Kemudian saya mereset field pada modal yang diinput user sebelumnya menggunakan method `reset()`. Selanjutnya saya memastikan agar fungsi tersebut aktif setelah user menekan button add_item dengan memanfaatkan kode
+
+            ```javascript
+            document.getElementById("button_add").onclick = addItem
+            ``` 
+
+        5.  Lakukan refresh pada halaman utama secara asinkronus untuk menampilkan daftar item terbaru tanpa reload halaman utama secara keseluruhan.
+
+            Pada fungsi refreshItems(), saya melakukan looping terhadap item yang tersedia dan membuat htmlString yang berisi cards dari setiap itemnya. htmlString ini saya masukkan ke tag `&lt;div id=’item_card’>` yang saya buat sebelumnya melalui metode manipulasi DOM. Kemudian saya memanggil fungsi refreshItems() agar daftar item diperbarui secara asinkronus tanpa perlu melakukan reload halaman setiap kali terjadi perubahan.
+
+    3. Melakukan perintah collectstatic.
+
+        Untuk mengumpulkan file static dari setiap aplikasi ke dalam suatu folder agar mudah disajikan pada produksi, saya memangging perintah `python manage.py collectstatic` pada cmd root direktori. Setelah pemanggilan tersebut, akan terbentuk direktori `static/admin` yang isinya berbagai macam static files yang digunakan pada projek ini.
+
+
+**References**
+
+* Awati, R. (n.d.). What is Asynchronous JavaScript and XML (AJAX)? TheServerSide. Retrieved October 8, 2023, from https://www.theserverside.com/definition/Ajax-Asynchronous-JavaScript-and-XML
+
+* Bevans, D. (2023, September 19). Explained: Asynchronous vs. Synchronous Programming. Mendix. Retrieved October 8, 2023, from https://www.mendix.com/blog/asynchronous-vs-synchronous-programming/
+
+
+
 # Tugas 5: Desain Web menggunakan HTML, CSS dan Framework CSS
 
 1. **Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.**
