@@ -128,6 +128,10 @@ def get_item_json(request):
     item = Item.objects.all()
     return HttpResponse(serializers.serialize('json', item))
 
+def get_item_json_by_user(request):
+    item = Item.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', item))
+
 @csrf_exempt
 def add_item_ajax(request):
     if request.method == 'POST':
