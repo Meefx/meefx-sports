@@ -125,7 +125,7 @@ def edit_item(request, id):
     return render(request, "edit_item.html", context)
 
 def get_item_json(request):
-    item = Item.objects.filter(user=request.user)
+    item = Item.objects.all()
     return HttpResponse(serializers.serialize('json', item))
 
 @csrf_exempt
@@ -141,3 +141,22 @@ def add_item_ajax(request):
 
         return HttpResponse(b"CREATED", status=201)
     return HttpResponseNotFound()
+
+@csrf_exempt
+def create_product_flutter(request):
+    if request.method == 'POST':
+        
+        data = json.loads(request.body)
+
+        new_product = Product.objects.create(
+            user = request.user,
+            name = data["name"],
+            price = int(data["price"]),
+            description = data["description"]
+        )
+
+        new_product.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
