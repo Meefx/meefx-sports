@@ -100,7 +100,7 @@
 
     <script>
         async function getItems() {
-            return fetch("{% url 'main:get_item_json_by_user' %}").then((res) => res.json())
+            return fetch("{% url 'main:get_item_json' %}").then((res) => res.json())
         }
 
         async function refreshItems(){
