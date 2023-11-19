@@ -6,3 +6,5 @@ requests
 urllib3
 coverage
 django-environ
+django-cors-headers
+corsheaders
